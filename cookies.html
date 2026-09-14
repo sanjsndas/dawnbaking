@@ -1,0 +1,367 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Cookies · Dawn Baking Corner</title>
+  <meta name="description" content="Cookie policy of Dawn Baking Corner — what cookies we use, why, and how you can manage them." />
+  <!-- fonts & reset -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300;14..32,400;14..32,500;14..32,600;14..32,700&family=Martel:wght@300;400;600;700&display=swap" rel="stylesheet" />
+  <style>
+    /* ----- design tokens (same as main site) ----- */
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+
+    :root {
+      --brand-cream: #FBF5ED;
+      --brand-warm: #F0E2D0;
+      --brand-honey: #D9B382;
+      --brand-amber: #B47B4C;
+      --brand-deep: #5E3A2A;
+      --brand-ink: #28221E;
+      --brand-light: #FDF9F4;
+      --surface-card: #FFFFFF;
+      --border-soft: #E6D7C5;
+      --text-body: #3A312B;
+      --text-muted: #7A6B5E;
+      --font-serif: 'Martel', Georgia, 'Times New Roman', serif;
+      --font-sans: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+      --card-radius: 0.5rem 1.5rem 0.5rem 1.5rem;
+      --shadow-sm: 0 4px 12px rgba(94, 58, 42, 0.06);
+      --shadow-md: 0 12px 32px -8px rgba(94, 58, 42, 0.10);
+      --transition: all 0.25s ease;
+    }
+
+    body {
+      font-family: var(--font-sans);
+      background: var(--brand-light);
+      color: var(--text-body);
+      line-height: 1.6;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    a { color: var(--brand-deep); text-decoration: none; transition: var(--transition); }
+    a:hover { color: var(--brand-amber); }
+    img { max-width: 100%; height: auto; display: block; }
+    .container { max-width: 1280px; margin: 0 auto; padding: 0 1.5rem; }
+
+    /* ----- typography ----- */
+    h1, h2, h3, h4 { font-family: var(--font-serif); font-weight: 600; letter-spacing: -0.01em; line-height: 1.2; }
+    .display-heading { font-size: clamp(2.4rem, 6vw, 3.8rem); font-weight: 700; letter-spacing: -0.02em; }
+    .section-title { font-size: clamp(1.8rem, 4vw, 2.6rem); border-bottom: 3px solid var(--brand-honey); padding-bottom: 0.5rem; display: inline-block; }
+    .subtitle { font-size: 1.2rem; font-weight: 300; color: var(--text-muted); font-family: var(--font-sans); }
+    .meta { font-size: 0.875rem; color: var(--text-muted); letter-spacing: 0.02em; }
+
+    /* ----- header / nav (handcrafted) ----- */
+    .site-header {
+      background: var(--brand-cream);
+      border-bottom: 2px solid var(--border-soft);
+      padding: 0.75rem 0;
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      backdrop-filter: blur(4px);
+      background: rgba(251, 245, 237, 0.94);
+    }
+    .header-inner {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      flex-wrap: wrap;
+    }
+    .logo {
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      font-family: var(--font-serif);
+      font-weight: 700;
+      font-size: 1.6rem;
+      color: var(--brand-deep);
+    }
+    .logo-icon {
+      background: var(--brand-deep);
+      color: var(--brand-light);
+      width: 42px; height: 42px;
+      border-radius: 60% 40% 50% 50% / 45% 50% 40% 55%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.4rem;
+      transform: rotate(-4deg);
+      border: 2px solid var(--brand-honey);
+    }
+    .logo small { font-size: 0.7rem; font-weight: 300; display: block; letter-spacing: 0.2em; color: var(--brand-amber); }
+
+    .nav-links {
+      display: flex;
+      gap: 1.8rem;
+      font-size: 0.9rem;
+      font-weight: 500;
+      text-transform: uppercase;
+      letter-spacing: 0.04em;
+    }
+    .nav-links a { color: var(--brand-deep); padding: 0.25rem 0; border-bottom: 2px solid transparent; }
+    .nav-links a:hover { border-bottom-color: var(--brand-honey); }
+    .nav-links a.active { border-bottom-color: var(--brand-amber); }
+
+    /* ----- privacy / cookies page specific ----- */
+    .privacy-content {
+      background: var(--surface-card);
+      border-radius: var(--card-radius);
+      padding: 2.5rem 2.8rem;
+      box-shadow: var(--shadow-sm);
+      border: 1px solid var(--border-soft);
+      margin: 2.5rem 0;
+    }
+    .privacy-content h2 {
+      font-size: 1.8rem;
+      margin-top: 2rem;
+      margin-bottom: 0.8rem;
+      color: var(--brand-deep);
+      border-left: 6px solid var(--brand-honey);
+      padding-left: 1rem;
+    }
+    .privacy-content h2:first-of-type { margin-top: 0; }
+    .privacy-content p { margin-bottom: 1rem; }
+    .privacy-content ul, .privacy-content ol {
+      margin: 0.5rem 0 1.5rem 1.8rem;
+    }
+    .privacy-content li { margin-bottom: 0.4rem; }
+    .highlight-box {
+      background: var(--brand-cream);
+      border-radius: 0.5rem 1rem 0.5rem 1rem;
+      padding: 1.2rem 1.8rem;
+      border-left: 6px solid var(--brand-amber);
+      margin: 1.5rem 0;
+    }
+    .privacy-content .meta-note {
+      font-size: 0.9rem;
+      color: var(--text-muted);
+      border-top: 1px solid var(--border-soft);
+      padding-top: 1.5rem;
+      margin-top: 2rem;
+    }
+    .privacy-content a { text-decoration: underline; text-underline-offset: 2px; }
+
+    /* cookie table */
+    .cookie-table {
+      width: 100%;
+      border-collapse: collapse;
+      margin: 1.5rem 0;
+      font-size: 0.95rem;
+    }
+    .cookie-table th {
+      background: var(--brand-cream);
+      text-align: left;
+      padding: 0.75rem 1rem;
+      border-bottom: 2px solid var(--brand-honey);
+      font-weight: 600;
+    }
+    .cookie-table td {
+      padding: 0.75rem 1rem;
+      border-bottom: 1px solid var(--border-soft);
+      vertical-align: top;
+    }
+    .cookie-table tr:last-child td { border-bottom: none; }
+    .badge {
+      display: inline-block;
+      background: var(--brand-honey);
+      color: var(--brand-deep);
+      font-size: 0.7rem;
+      font-weight: 600;
+      padding: 0.15rem 0.6rem;
+      border-radius: 20px;
+      text-transform: uppercase;
+      letter-spacing: 0.03em;
+    }
+
+    /* footer */
+    .site-footer {
+      background: var(--brand-deep);
+      color: #e9ddd2;
+      padding: 3rem 0 1.5rem;
+      margin-top: 3rem;
+      border-top: 8px solid var(--brand-honey);
+    }
+    .footer-grid {
+      display: grid;
+      grid-template-columns: 2fr 1fr 1fr 1fr;
+      gap: 2rem;
+    }
+    .footer-grid h4 { color: var(--brand-honey); font-family: var(--font-serif); margin-bottom: 0.8rem; }
+    .footer-grid a { color: #dccfc2; }
+    .footer-grid a:hover { color: var(--brand-honey); }
+    .footer-legal {
+      border-top: 1px solid #5e3a2a;
+      margin-top: 2rem;
+      padding-top: 1.5rem;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 1.5rem;
+      font-size: 0.8rem;
+      justify-content: space-between;
+    }
+
+    /* responsive */
+    @media (max-width: 800px) {
+      .footer-grid { grid-template-columns: 1fr 1fr; }
+      .nav-links { gap: 0.8rem; font-size: 0.75rem; flex-wrap: wrap; justify-content: center; }
+      .header-inner { flex-direction: column; gap: 0.5rem; }
+      .logo { font-size: 1.4rem; }
+      .privacy-content { padding: 1.8rem; }
+      .cookie-table { font-size: 0.85rem; }
+      .cookie-table th, .cookie-table td { padding: 0.5rem 0.6rem; }
+    }
+    @media (max-width: 500px) {
+      .footer-grid { grid-template-columns: 1fr; }
+      .privacy-content { padding: 1.2rem; }
+    }
+    .mt-2 { margin-top: 2rem; }
+    .mb-1 { margin-bottom: 1rem; }
+    .text-center { text-align: center; }
+  </style>
+</head>
+<body>
+
+<!-- header (same as main site) -->
+<header class="site-header">
+  <div class="container header-inner">
+    <a href="index.html" class="logo" style="text-decoration:none;">
+      <span class="logo-icon">🍞</span>
+      <span>Dawn Baking <small>corner</small></span>
+    </a>
+    <nav class="nav-links">
+      <a href="index.html">Home</a>
+      <a href="about.html">About</a>
+      <a href="contact.html">Contact</a>
+      <a href="terms.html">Terms</a>
+      <a href="privacy.html">Privacy</a>
+      <a href="cookies.html" class="active">Cookies</a>
+      <a href="disclaimer.html">Disclaimer</a>
+      <a href="categories.html">Categories</a>
+    </nav>
+  </div>
+</header>
+
+<!-- main -->
+<main class="container">
+
+  <!-- page header -->
+  <div style="padding: 1.5rem 0 0.5rem;">
+    <h1 class="display-heading" style="font-weight:400;">Cookie <span style="background: var(--brand-honey); padding:0 0.2rem;">policy</span></h1>
+    <p class="subtitle" style="font-size:1.2rem; max-width:650px;">We use cookies like we use butter — sparingly, deliberately, and only to make things better.</p>
+  </div>
+
+  <!-- cookie content -->
+  <div class="privacy-content">
+    <p><strong>Effective date:</strong> April 1, 2026 &nbsp;|&nbsp; <span class="meta">Last updated: April 1, 2026</span></p>
+    <p>This Cookie Policy explains what cookies are, how we use them on Dawn Baking Corner, and how you can manage your preferences. We believe in transparent baking — and transparent browsing.</p>
+
+    <h2>What are cookies?</h2>
+    <p>Cookies are small text files that websites place on your device (computer, tablet, or phone) to store information about your visit. They help us remember your preferences, understand how you use our site, and improve your experience. Think of them as a tiny pinch of salt — not the main ingredient, but they help everything work better.</p>
+
+    <h2>How we use cookies</h2>
+    <p>We use only essential and functional cookies. We do <strong>not</strong> use advertising or tracking cookies for third‑party marketing. Our cookies are divided into these categories:</p>
+
+    <table class="cookie-table">
+      <thead>
+        <tr><th>Type</th><th>Purpose</th><th>Example</th><th>Duration</th></tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td><span class="badge">essential</span></td>
+          <td>Necessary for the site to function (e.g., security, session management).</td>
+          <td><code>session_id</code></td>
+          <td>session</td>
+        </tr>
+        <tr>
+          <td><span class="badge">preference</span></td>
+          <td>Remember your choices (e.g., dark mode, language, font size).</td>
+          <td><code>theme_pref</code></td>
+          <td>1 year</td>
+        </tr>
+        <tr>
+          <td><span class="badge">analytics</span></td>
+          <td>Anonymous, aggregated data to improve content (privacy‑first, no cross‑site tracking).</td>
+          <td><code>_ga_*</code> (anonymized)</td>
+          <td>14 months</td>
+        </tr>
+      </tbody>
+    </table>
+
+    <div class="highlight-box">
+      <p><strong>🍪 We do not use tracking cookies for advertising, retargeting, or sharing data with third parties.</strong> Your cookie jar is yours alone.</p>
+    </div>
+
+    <h2>Managing your cookie preferences</h2>
+    <p>You can control and manage cookies in various ways. Most browsers allow you to block or delete cookies through their settings. However, please note that disabling essential cookies may affect the functionality of our site.</p>
+    <ul>
+      <li><strong>Browser settings</strong> — adjust your cookie preferences in your browser (Chrome, Firefox, Safari, Edge, etc.).</li>
+      <li><strong>Opt‑out tools</strong> — for analytics, we use a provider that offers an opt‑out mechanism (see below).</li>
+      <li><strong>Our preference center</strong> — you can set your preferences via the cookie banner that appears when you first visit.</li>
+    </ul>
+    <p>If you have any questions about managing cookies, <a href="contact.html">contact us</a> and we’ll be happy to help.</p>
+
+    <h2>Third‑party cookies</h2>
+    <p>We use a limited number of third‑party services that may place cookies:</p>
+    <ul>
+      <li><strong>Analytics</strong> — we use a privacy‑first analytics service that does not track individual users across websites. Their cookies are used solely for aggregated statistics.</li>
+      <li><strong>Email sign‑up</strong> — if you subscribe to our newsletter, the mailing platform may place a cookie to remember your subscription status.</li>
+    </ul>
+    <p>These third parties are contractually bound to process data only for the purposes we specify.</p>
+
+    <h2>Your rights</h2>
+    <p>Under GDPR and CCPA, you have the right to:</p>
+    <ul>
+      <li>Know what cookies are being placed on your device.</li>
+      <li>Withdraw consent at any time (where consent is required).</li>
+      <li>Request deletion of any data collected via cookies (subject to legal obligations).</li>
+    </ul>
+    <p>To exercise these rights, please <a href="contact.html">reach out to us</a>.</p>
+
+    <h2>Changes to this policy</h2>
+    <p>We may update this Cookie Policy from time to time to reflect changes in technology, regulation, or our practices. We’ll post the updated version here and update the effective date. We encourage you to review it periodically.</p>
+
+    <h2>Contact us</h2>
+    <p>If you have any questions about our use of cookies, or if you’d like to exercise your rights, please <a href="contact.html">contact us</a> or email <strong>privacy@dawnbaking.corner</strong>.</p>
+
+    <div class="meta-note">
+      <p>🍪 This policy is baked fresh daily — just like our croissants. Thank you for trusting us with your browsing experience.</p>
+    </div>
+  </div>
+
+  <!-- quick summary / cta -->
+  <div style="display: flex; flex-wrap: wrap; gap: 1.5rem; justify-content: space-between; background: var(--brand-warm); padding: 1.8rem 2.2rem; border-radius: 1rem; margin: 1.5rem 0 2.5rem;">
+    <div style="flex:1;"><strong>🍪 Cookie control:</strong> manage via browser settings or our consent banner.</div>
+    <div style="flex:1;"><strong>📬 Questions?</strong> <a href="contact.html">Contact us</a> or email privacy@dawnbaking.corner</div>
+    <div style="flex:1;"><strong>✅ GDPR &amp; CCPA compliant</strong> — we respect your choices.</div>
+  </div>
+
+</main>
+
+<!-- footer -->
+<footer class="site-footer">
+  <div class="container">
+    <div class="footer-grid">
+      <div><h4>Dawn Baking Corner</h4><p style="color:#dccfc2; font-size:0.9rem;">Artisan bread, viennoiserie, and pastry — a journal for bakers who chase the perfect crumb.</p><p style="margin-top:0.5rem; font-size:0.8rem;">📍 bakery · since 2026</p></div>
+      <div><h4>Explore</h4><a href="index.html">Journal</a><br /><a href="categories.html">Recipes</a><br /><a href="#">Techniques</a><br /><a href="#">Resources</a></div>
+      <div><h4>Info</h4><a href="about.html">About</a><br /><a href="#">Authors</a><br /><a href="contact.html">Contact</a><br /><a href="#">Editorial policy</a></div>
+      <div><h4>Legal</h4><a href="privacy.html">Privacy</a><br /><a href="terms.html">Terms</a><br /><a href="cookies.html">Cookies</a><br /><a href="disclaimer.html">Disclaimer</a></div>
+    </div>
+    <div class="footer-legal">
+      <span>© 2026 Dawn Baking Corner — all rights reserved</span>
+      <span>🍞 handmade with flour & fire</span>
+    </div>
+  </div>
+</footer>
+
+<!-- hidden navigation for completeness -->
+<div style="display:none;">
+  <a href="index.html">Home</a> <a href="about.html">About</a> <a href="contact.html">Contact</a>
+  <a href="privacy.html">Privacy Policy</a> <a href="terms.html">Terms</a> <a href="cookies.html">Cookie Policy</a>
+  <a href="disclaimer.html">Disclaimer</a> <a href="categories.html">Categories</a>
+</div>
+
+</body>
+</html>

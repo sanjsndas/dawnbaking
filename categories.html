@@ -1,0 +1,489 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Categories · Dawn Baking Corner</title>
+  <meta name="description" content="Explore all baking categories — sourdough, viennoiserie, pastry, cakes, and more at Dawn Baking Corner." />
+  <!-- fonts & reset (same as terms) -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300;14..32,400;14..32,500;14..32,600;14..32,700&family=Martel:wght@300;400;600;700&display=swap" rel="stylesheet" />
+  <style>
+    /* ----- design tokens (same as terms) ----- */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+    :root {
+      --brand-cream: #FBF5ED;
+      --brand-warm: #F0E2D0;
+      --brand-honey: #D9B382;
+      --brand-amber: #B47B4C;
+      --brand-deep: #5E3A2A;
+      --brand-ink: #28221E;
+      --brand-light: #FDF9F4;
+      --surface-card: #FFFFFF;
+      --border-soft: #E6D7C5;
+      --text-body: #3A312B;
+      --text-muted: #7A6B5E;
+      --font-serif: 'Martel', Georgia, 'Times New Roman', serif;
+      --font-sans: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+      --card-radius: 0.5rem 1.5rem 0.5rem 1.5rem;
+      --shadow-sm: 0 4px 12px rgba(94, 58, 42, 0.06);
+      --shadow-md: 0 12px 32px -8px rgba(94, 58, 42, 0.10);
+      --transition: all 0.25s ease;
+    }
+    body {
+      font-family: var(--font-sans);
+      background: var(--brand-light);
+      color: var(--text-body);
+      line-height: 1.7;
+      -webkit-font-smoothing: antialiased;
+    }
+    a {
+      color: var(--brand-deep);
+      text-decoration: none;
+      transition: var(--transition);
+    }
+    a:hover {
+      color: var(--brand-amber);
+    }
+    img {
+      max-width: 100%;
+      height: auto;
+      display: block;
+    }
+    .container {
+      max-width: 1280px;
+      margin: 0 auto;
+      padding: 0 1.5rem;
+    }
+    /* typography */
+    h1, h2, h3, h4 {
+      font-family: var(--font-serif);
+      font-weight: 600;
+      letter-spacing: -0.01em;
+      line-height: 1.2;
+    }
+    .display-heading {
+      font-size: clamp(2.6rem, 7vw, 4.4rem);
+      font-weight: 700;
+      letter-spacing: -0.02em;
+    }
+    .section-title {
+      font-size: clamp(1.8rem, 4vw, 2.6rem);
+      border-bottom: 3px solid var(--brand-honey);
+      padding-bottom: 0.5rem;
+      display: inline-block;
+    }
+    .subtitle {
+      font-size: 1.2rem;
+      font-weight: 300;
+      color: var(--text-muted);
+      font-family: var(--font-sans);
+    }
+    .meta {
+      font-size: 0.875rem;
+      color: var(--text-muted);
+      letter-spacing: 0.02em;
+    }
+    /* ----- header (same as terms) ----- */
+    .site-header {
+      background: var(--brand-cream);
+      border-bottom: 2px solid var(--border-soft);
+      padding: 0.75rem 0;
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      backdrop-filter: blur(4px);
+      background: rgba(251, 245, 237, 0.94);
+    }
+    .header-inner {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      flex-wrap: wrap;
+    }
+    .logo {
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      font-family: var(--font-serif);
+      font-weight: 700;
+      font-size: 1.6rem;
+      color: var(--brand-deep);
+    }
+    .logo-icon {
+      background: var(--brand-deep);
+      color: var(--brand-light);
+      width: 42px;
+      height: 42px;
+      border-radius: 60% 40% 50% 50% / 45% 50% 40% 55%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.4rem;
+      transform: rotate(-4deg);
+      border: 2px solid var(--brand-honey);
+    }
+    .logo span {
+      letter-spacing: -0.02em;
+    }
+    .logo small {
+      font-size: 0.7rem;
+      font-weight: 300;
+      display: block;
+      letter-spacing: 0.2em;
+      color: var(--brand-amber);
+    }
+    .nav-links {
+      display: flex;
+      gap: 1.8rem;
+      font-size: 0.9rem;
+      font-weight: 500;
+      text-transform: uppercase;
+      letter-spacing: 0.04em;
+    }
+    .nav-links a {
+      color: var(--brand-deep);
+      padding: 0.25rem 0;
+      border-bottom: 2px solid transparent;
+    }
+    .nav-links a:hover {
+      border-bottom-color: var(--brand-honey);
+    }
+
+    /* ----- categories hero (variant) ----- */
+    .categories-hero {
+      background: var(--brand-cream);
+      border-radius: 1rem 2rem 1rem 2rem;
+      padding: 2.5rem 2.5rem;
+      margin: 2.5rem 0 2rem;
+      border: 1px solid var(--border-soft);
+      box-shadow: var(--shadow-sm);
+    }
+
+    /* category grid */
+    .category-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+      gap: 2rem;
+      margin: 2.5rem 0 3rem;
+    }
+    .category-card {
+      background: var(--surface-card);
+      border-radius: var(--card-radius);
+      padding: 1.8rem 1.5rem;
+      box-shadow: var(--shadow-sm);
+      border: 1px solid var(--border-soft);
+      transition: var(--transition);
+      display: flex;
+      flex-direction: column;
+    }
+    .category-card:hover {
+      transform: translateY(-6px);
+      box-shadow: var(--shadow-md);
+      border-color: var(--brand-honey);
+    }
+    .category-card .emoji-big {
+      font-size: 3rem;
+      line-height: 1;
+      margin-bottom: 0.3rem;
+    }
+    .category-card h3 {
+      font-size: 1.5rem;
+      font-family: var(--font-serif);
+      font-weight: 600;
+      margin: 0.25rem 0 0.2rem;
+    }
+    .category-card p {
+      font-size: 0.95rem;
+      color: var(--text-muted);
+      margin: 0.2rem 0 0.8rem;
+      flex: 1;
+    }
+    .category-card .badge {
+      background: var(--brand-warm);
+      border-radius: 30px;
+      padding: 0.2rem 1rem;
+      font-size: 0.75rem;
+      font-weight: 600;
+      letter-spacing: 0.03em;
+      color: var(--brand-deep);
+      align-self: flex-start;
+      border: 1px solid var(--border-soft);
+    }
+    .category-card .recipe-count {
+      font-size: 0.8rem;
+      color: var(--text-muted);
+      margin-top: 0.5rem;
+    }
+
+    /* highlight box (reuse) */
+    .highlight-box {
+      background: var(--brand-warm);
+      border-radius: 0.5rem 1rem 0.5rem 1rem;
+      padding: 1.5rem;
+      margin: 1.2rem 0;
+      border-left: 6px solid var(--brand-honey);
+    }
+
+    /* ----- footer (same as terms) ----- */
+    .site-footer {
+      background: var(--brand-deep);
+      color: #e9ddd2;
+      padding: 3rem 0 1.5rem;
+      margin-top: 3rem;
+      border-top: 8px solid var(--brand-honey);
+    }
+    .footer-grid {
+      display: grid;
+      grid-template-columns: 2fr 1fr 1fr 1fr;
+      gap: 2rem;
+    }
+    .footer-grid h4 {
+      color: var(--brand-honey);
+      font-family: var(--font-serif);
+      margin-bottom: 0.8rem;
+    }
+    .footer-grid a {
+      color: #dccfc2;
+    }
+    .footer-grid a:hover {
+      color: var(--brand-honey);
+    }
+    .footer-legal {
+      border-top: 1px solid #5e3a2a;
+      margin-top: 2rem;
+      padding-top: 1.5rem;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 1.5rem;
+      font-size: 0.8rem;
+      justify-content: space-between;
+    }
+
+    /* responsive */
+    @media (max-width: 800px) {
+      .footer-grid {
+        grid-template-columns: 1fr 1fr;
+      }
+      .header-inner {
+        flex-direction: column;
+        gap: 0.5rem;
+      }
+      .nav-links {
+        gap: 0.8rem;
+        font-size: 0.75rem;
+        flex-wrap: wrap;
+        justify-content: center;
+      }
+      .categories-hero {
+        padding: 2rem 1.2rem;
+      }
+    }
+    @media (max-width: 500px) {
+      .footer-grid {
+        grid-template-columns: 1fr;
+      }
+      .category-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+  </style>
+</head>
+<body>
+
+<!-- header (identical to terms) -->
+<header class="site-header">
+  <div class="container header-inner">
+    <a href="index.html" class="logo" style="text-decoration:none;">
+      <span class="logo-icon">🍞</span>
+      <span>Dawn Baking <small>corner</small></span>
+    </a>
+    <nav class="nav-links">
+      <a href="index.html">Home</a>
+      <a href="about.html">About</a>
+      <a href="contact.html">Contact</a>
+      <a href="terms.html">Terms Of Privacy</a>
+      <a href="privacy.html">Privacy Policy</a>
+      <a href="cookies.html">Cookies Policy</a>
+      <a href="disclaimer.html">Disclaimer</a>
+      <a href="categories.html">Categories</a>
+    </nav>
+  </div>
+</header>
+
+<!-- main -->
+<main class="container">
+
+  <!-- categories hero -->
+  <section class="categories-hero">
+    <span class="meta" style="background:var(--brand-honey); padding:0.1rem 1rem; border-radius:30px; color:white; display:inline-block;">browse by category</span>
+    <h1 class="display-heading" style="font-weight:400; margin:0.5rem 0 0.2rem;">
+      <span style="background:var(--brand-honey); padding:0 0.2rem;">Explore</span> our baking library
+    </h1>
+    <p class="subtitle" style="font-size:1.2rem; max-width:650px; margin-top:0.2rem;">
+      From crusty sourdough to delicate viennoiserie — find your next bake by category.
+    </p>
+    <div style="margin-top:1.5rem; display:flex; flex-wrap:wrap; gap:1.5rem;">
+      <div><span style="font-weight:600;">📖</span> <span class="meta">15+ categories</span></div>
+      <div><span style="font-weight:600;">🔥</span> <span class="meta">new recipes added weekly</span></div>
+    </div>
+  </section>
+
+  <!-- category grid -->
+  <div class="category-grid">
+
+    <div class="category-card">
+      <div class="emoji-big">🍞</div>
+      <h3>Sourdough</h3>
+      <p>Wild yeast loaves, tangy crumb, and crusty artisanal breads.</p>
+      <span class="badge">12 recipes</span>
+      <span class="recipe-count">⬆️ 4 new this month</span>
+    </div>
+
+    <div class="category-card">
+      <div class="emoji-big">🥐</div>
+      <h3>Viennoiserie</h3>
+      <p>Buttery croissants, pain au chocolat, danishes, and laminated pastries.</p>
+      <span class="badge">8 recipes</span>
+      <span class="recipe-count">⬆️ 2 new this month</span>
+    </div>
+
+    <div class="category-card">
+      <div class="emoji-big">🥧</div>
+      <h3>Pies & Tarts</h3>
+      <p>Sweet and savoury — from classic apple pie to quiche and galettes.</p>
+      <span class="badge">10 recipes</span>
+      <span class="recipe-count">⬆️ 1 new this month</span>
+    </div>
+
+    <div class="category-card">
+      <div class="emoji-big">🍰</div>
+      <h3>Cakes & Loaves</h3>
+      <p>Layer cakes, pound cakes, banana bread, and celebration bakes.</p>
+      <span class="badge">14 recipes</span>
+      <span class="recipe-count">⬆️ 3 new this month</span>
+    </div>
+
+    <div class="category-card">
+      <div class="emoji-big">🥨</div>
+      <h3>Breads (yeasted)</h3>
+      <p>Classic white, whole wheat, rye, baguettes, and brioche.</p>
+      <span class="badge">9 recipes</span>
+      <span class="recipe-count">⬆️ 2 new this month</span>
+    </div>
+
+    <div class="category-card">
+      <div class="emoji-big">🥮</div>
+      <h3>Pastry & Dough</h3>
+      <p>Puff pastry, choux, shortcrust, and sweet dough fundamentals.</p>
+      <span class="badge">7 recipes</span>
+      <span class="recipe-count">⬆️ 1 new this month</span>
+    </div>
+
+    <div class="category-card">
+      <div class="emoji-big">🧁</div>
+      <h3>Cupcakes & Muffins</h3>
+      <p>Perfectly portioned treats — from classic vanilla to seasonal flavours.</p>
+      <span class="badge">11 recipes</span>
+      <span class="recipe-count">⬆️ 2 new this month</span>
+    </div>
+
+    <div class="category-card">
+      <div class="emoji-big">🍪</div>
+      <h3>Cookies & Biscuits</h3>
+      <p>Chewy, crispy, and everything in between — including shortbread.</p>
+      <span class="badge">13 recipes</span>
+      <span class="recipe-count">⬆️ 3 new this month</span>
+    </div>
+
+    <div class="category-card">
+      <div class="emoji-big">🥖</div>
+      <h3>Artisan & Heritage</h3>
+      <p>Ancient grains, seeded loaves, and slow-fermented specialties.</p>
+      <span class="badge">6 recipes</span>
+      <span class="recipe-count">⬆️ 1 new this month</span>
+    </div>
+
+    <div class="category-card">
+      <div class="emoji-big">🍩</div>
+      <h3>Doughnuts & Fried</h3>
+      <p>Yeast-raised, cake doughnuts, and fritters — sweet & indulgent.</p>
+      <span class="badge">5 recipes</span>
+      <span class="recipe-count">⬆️ 0 new this month</span>
+    </div>
+
+    <div class="category-card">
+      <div class="emoji-big">🥯</div>
+      <h3>Bagels & Rolls</h3>
+      <p>Chewy bagels, dinner rolls, brioche buns, and soft pretzels.</p>
+      <span class="badge">8 recipes</span>
+      <span class="recipe-count">⬆️ 2 new this month</span>
+    </div>
+
+    <div class="category-card">
+      <div class="emoji-big">🍫</div>
+      <h3>Chocolate & Dessert</h3>
+      <p>Brownies, tarts, mousses, and chocolate-forward bakes.</p>
+      <span class="badge">9 recipes</span>
+      <span class="recipe-count">⬆️ 2 new this month</span>
+    </div>
+
+  </div>
+
+  <!-- callout / seasonal highlight (same style as terms highlight) -->
+  <div style="margin-bottom: 2.5rem;">
+    <div class="highlight-box" style="background: var(--brand-cream); border-left-color: var(--brand-amber);">
+      <p style="font-weight: 600; font-size: 1.2rem; display: flex; align-items: center; gap: 0.5rem;">
+        <span>🌾</span> Seasonal category: <span style="background: var(--brand-honey); padding: 0 0.6rem; border-radius: 30px; color: white;">Spring Baking</span>
+      </p>
+      <p style="margin-top: 0.25rem;">Explore our fresh spring collection — rhubarb tarts, lemon loaves, and herb-infused flatbreads. <a href="#" style="font-weight: 500;">View all →</a></p>
+    </div>
+  </div>
+
+</main>
+
+<!-- footer (identical to terms) -->
+<footer class="site-footer">
+  <div class="container">
+    <div class="footer-grid">
+      <div>
+        <h4>Dawn Baking Corner</h4>
+        <p style="color:#dccfc2; font-size:0.9rem;">Artisan bread, viennoiserie, and pastry — a journal for bakers who chase the perfect crumb.</p>
+        <p style="margin-top:0.5rem; font-size:0.8rem;">📍 bakery · since 2026</p>
+      </div>
+      <div>
+        <h4>Explore</h4>
+        <a href="#">Journal</a><br />
+        <a href="#">Recipes</a><br />
+        <a href="#">Techniques</a><br />
+        <a href="#">Resources</a>
+      </div>
+      <div>
+        <h4>Info</h4>
+        <a href="about.html">About</a><br />
+        <a href="#">Authors</a><br />
+        <a href="contact.html">Contact</a><br />
+        <a href="#">Editorial policy</a>
+      </div>
+      <div>
+        <h4>Legal</h4>
+        <a href="privacy.html">Privacy</a><br />
+        <a href="terms.html">Terms</a><br />
+        <a href="cookies.html">Cookies</a><br />
+        <a href="disclaimer.html">Disclaimer</a>
+      </div>
+    </div>
+    <div class="footer-legal">
+      <span>© 2026 Dawn Baking Corner — all rights reserved</span>
+      <span>🍞 handmade with flour & fire</span>
+    </div>
+  </div>
+</footer>
+
+</body>
+</html>

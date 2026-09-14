@@ -1,0 +1,422 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Contact · Dawn Baking Corner</title>
+  <meta name="description" content="Reach out to Dawn Baking Corner — we’d love to hear from fellow bakers, readers, and pastry enthusiasts." />
+  <!-- fonts & reset -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300;14..32,400;14..32,500;14..32,600;14..32,700&family=Martel:wght@300;400;600;700&display=swap" rel="stylesheet" />
+  <style>
+    /* ----- design tokens (same as main site) ----- */
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+
+    :root {
+      --brand-cream: #FBF5ED;
+      --brand-warm: #F0E2D0;
+      --brand-honey: #D9B382;
+      --brand-amber: #B47B4C;
+      --brand-deep: #5E3A2A;
+      --brand-ink: #28221E;
+      --brand-light: #FDF9F4;
+      --surface-card: #FFFFFF;
+      --border-soft: #E6D7C5;
+      --text-body: #3A312B;
+      --text-muted: #7A6B5E;
+      --font-serif: 'Martel', Georgia, 'Times New Roman', serif;
+      --font-sans: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+      --card-radius: 0.5rem 1.5rem 0.5rem 1.5rem;
+      --shadow-sm: 0 4px 12px rgba(94, 58, 42, 0.06);
+      --shadow-md: 0 12px 32px -8px rgba(94, 58, 42, 0.10);
+      --transition: all 0.25s ease;
+    }
+
+    body {
+      font-family: var(--font-sans);
+      background: var(--brand-light);
+      color: var(--text-body);
+      line-height: 1.6;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    a { color: var(--brand-deep); text-decoration: none; transition: var(--transition); }
+    a:hover { color: var(--brand-amber); }
+    img { max-width: 100%; height: auto; display: block; }
+    .container { max-width: 1280px; margin: 0 auto; padding: 0 1.5rem; }
+
+    /* ----- typography ----- */
+    h1, h2, h3, h4 { font-family: var(--font-serif); font-weight: 600; letter-spacing: -0.01em; line-height: 1.2; }
+    .display-heading { font-size: clamp(2.4rem, 6vw, 3.8rem); font-weight: 700; letter-spacing: -0.02em; }
+    .section-title { font-size: clamp(1.8rem, 4vw, 2.6rem); border-bottom: 3px solid var(--brand-honey); padding-bottom: 0.5rem; display: inline-block; }
+    .subtitle { font-size: 1.2rem; font-weight: 300; color: var(--text-muted); font-family: var(--font-sans); }
+    .meta { font-size: 0.875rem; color: var(--text-muted); letter-spacing: 0.02em; }
+
+    /* ----- header / nav (handcrafted) ----- */
+    .site-header {
+      background: var(--brand-cream);
+      border-bottom: 2px solid var(--border-soft);
+      padding: 0.75rem 0;
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      backdrop-filter: blur(4px);
+      background: rgba(251, 245, 237, 0.94);
+    }
+    .header-inner {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      flex-wrap: wrap;
+    }
+    .logo {
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      font-family: var(--font-serif);
+      font-weight: 700;
+      font-size: 1.6rem;
+      color: var(--brand-deep);
+    }
+    .logo-icon {
+      background: var(--brand-deep);
+      color: var(--brand-light);
+      width: 42px; height: 42px;
+      border-radius: 60% 40% 50% 50% / 45% 50% 40% 55%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.4rem;
+      transform: rotate(-4deg);
+      border: 2px solid var(--brand-honey);
+    }
+    .logo small { font-size: 0.7rem; font-weight: 300; display: block; letter-spacing: 0.2em; color: var(--brand-amber); }
+
+    .nav-links {
+      display: flex;
+      gap: 1.8rem;
+      font-size: 0.9rem;
+      font-weight: 500;
+      text-transform: uppercase;
+      letter-spacing: 0.04em;
+    }
+    .nav-links a { color: var(--brand-deep); padding: 0.25rem 0; border-bottom: 2px solid transparent; }
+    .nav-links a:hover { border-bottom-color: var(--brand-honey); }
+    .nav-links a.active { border-bottom-color: var(--brand-amber); }
+
+    /* ----- contact page specific layout ----- */
+    .contact-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 3rem;
+      margin: 2.5rem 0 3rem;
+    }
+    .contact-card {
+      background: var(--surface-card);
+      border-radius: var(--card-radius);
+      padding: 2rem 2.2rem;
+      box-shadow: var(--shadow-sm);
+      border: 1px solid var(--border-soft);
+      transition: var(--transition);
+    }
+    .contact-card:hover { box-shadow: var(--shadow-md); }
+    .contact-card h2 { font-size: 1.8rem; margin-bottom: 0.5rem; }
+    .contact-card .sub { color: var(--text-muted); margin-bottom: 1.5rem; }
+
+    /* form */
+    .form-group {
+      margin-bottom: 1.5rem;
+    }
+    .form-group label {
+      display: block;
+      font-weight: 600;
+      font-size: 0.9rem;
+      margin-bottom: 0.3rem;
+      letter-spacing: 0.02em;
+    }
+    .form-group input,
+    .form-group textarea,
+    .form-group select {
+      width: 100%;
+      padding: 0.7rem 1rem;
+      border: 1px solid var(--border-soft);
+      border-radius: 0.5rem;
+      background: var(--brand-light);
+      font-family: var(--font-sans);
+      transition: var(--transition);
+      font-size: 1rem;
+    }
+    .form-group input:focus,
+    .form-group textarea:focus,
+    .form-group select:focus {
+      outline: 2px solid var(--brand-honey);
+      border-color: var(--brand-amber);
+      background: white;
+    }
+    .form-group textarea { min-height: 140px; resize: vertical; }
+    .btn {
+      background: var(--brand-deep);
+      color: white;
+      border: none;
+      padding: 0.8rem 2.2rem;
+      font-weight: 600;
+      border-radius: 40px;
+      font-size: 1rem;
+      cursor: pointer;
+      transition: var(--transition);
+      border: 1px solid var(--brand-deep);
+      font-family: var(--font-sans);
+    }
+    .btn:hover { background: var(--brand-amber); border-color: var(--brand-amber); transform: translateY(-2px); box-shadow: var(--shadow-sm); }
+
+    .contact-info {
+      display: flex;
+      flex-direction: column;
+      gap: 1.8rem;
+    }
+    .info-item {
+      display: flex;
+      align-items: flex-start;
+      gap: 1rem;
+      padding: 1rem 0;
+      border-bottom: 1px solid var(--border-soft);
+    }
+    .info-item:last-child { border-bottom: 0; }
+    .info-icon {
+      font-size: 1.8rem;
+      min-width: 2.8rem;
+      background: var(--brand-cream);
+      border-radius: 50%;
+      width: 48px; height: 48px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    .info-item h4 { font-size: 1rem; font-weight: 600; }
+    .info-item p { color: var(--text-muted); font-size: 0.95rem; }
+
+    .social-links {
+      display: flex;
+      gap: 1.2rem;
+      margin-top: 0.8rem;
+      flex-wrap: wrap;
+    }
+    .social-links a {
+      background: var(--brand-cream);
+      padding: 0.3rem 1rem;
+      border-radius: 40px;
+      font-size: 0.9rem;
+      border: 1px solid var(--border-soft);
+      font-weight: 500;
+    }
+    .social-links a:hover { background: var(--brand-deep); color: white; border-color: var(--brand-deep); }
+
+    .map-placeholder {
+      background: var(--brand-warm);
+      border-radius: 1rem 0.5rem 1rem 0.5rem;
+      padding: 2rem 1.5rem;
+      text-align: center;
+      margin-top: 1rem;
+      border: 1px dashed var(--brand-amber);
+    }
+
+    /* footer */
+    .site-footer {
+      background: var(--brand-deep);
+      color: #e9ddd2;
+      padding: 3rem 0 1.5rem;
+      margin-top: 3rem;
+      border-top: 8px solid var(--brand-honey);
+    }
+    .footer-grid {
+      display: grid;
+      grid-template-columns: 2fr 1fr 1fr 1fr;
+      gap: 2rem;
+    }
+    .footer-grid h4 { color: var(--brand-honey); font-family: var(--font-serif); margin-bottom: 0.8rem; }
+    .footer-grid a { color: #dccfc2; }
+    .footer-grid a:hover { color: var(--brand-honey); }
+    .footer-legal {
+      border-top: 1px solid #5e3a2a;
+      margin-top: 2rem;
+      padding-top: 1.5rem;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 1.5rem;
+      font-size: 0.8rem;
+      justify-content: space-between;
+    }
+
+    /* responsive */
+    @media (max-width: 800px) {
+      .contact-grid { grid-template-columns: 1fr; }
+      .footer-grid { grid-template-columns: 1fr 1fr; }
+      .nav-links { gap: 0.8rem; font-size: 0.75rem; flex-wrap: wrap; justify-content: center; }
+      .header-inner { flex-direction: column; gap: 0.5rem; }
+      .logo { font-size: 1.4rem; }
+    }
+    @media (max-width: 500px) {
+      .footer-grid { grid-template-columns: 1fr; }
+      .contact-card { padding: 1.5rem; }
+    }
+    .mt-2 { margin-top: 2rem; }
+    .mb-1 { margin-bottom: 1rem; }
+    .text-center { text-align: center; }
+  </style>
+</head>
+<body>
+
+<!-- header (same as main site) -->
+<header class="site-header">
+  <div class="container header-inner">
+    <a href="index.html" class="logo" style="text-decoration:none;">
+      <span class="logo-icon">🍞</span>
+      <span>Dawn Baking <small>corner</small></span>
+    </a>
+    <nav class="nav-links">
+      <a href="index.html">Home</a>
+      <a href="about.html">About</a>
+      <a href="contact.html" class="active">Contact</a>
+      <a href="terms.html">Terms</a>
+      <a href="privacy.html">Privacy</a>
+      <a href="cookies.html">Cookies</a>
+      <a href="disclaimer.html">Disclaimer</a>
+      <a href="categories.html">Categories</a>
+    </nav>
+  </div>
+</header>
+
+<!-- main -->
+<main class="container">
+
+  <!-- page header -->
+  <div style="padding: 1.5rem 0 0.5rem;">
+    <h1 class="display-heading" style="font-weight:400;">Let’s <span style="background: var(--brand-honey); padding:0 0.2rem;">bake</span> together</h1>
+    <p class="subtitle" style="font-size:1.2rem; max-width:600px;">Have a question, a recipe tip, or just want to say hello? We’d love to hear from you.</p>
+  </div>
+
+  <!-- contact grid -->
+  <div class="contact-grid">
+    <!-- left: form -->
+    <div class="contact-card">
+      <h2>Send us a note</h2>
+      <p class="sub">We’ll reply within 48 hours — we’re bakers, not robots.</p>
+      <form action="#" method="post">
+        <div class="form-group">
+          <label for="name">Your name *</label>
+          <input type="text" id="name" name="name" placeholder="e.g. Margot Baker" required />
+        </div>
+        <div class="form-group">
+          <label for="email">Email *</label>
+          <input type="email" id="email" name="email" placeholder="margot@bakery.com" required />
+        </div>
+        <div class="form-group">
+          <label for="subject">Subject</label>
+          <select id="subject" name="subject">
+            <option value="">— select —</option>
+            <option value="recipe">Recipe question</option>
+            <option value="technique">Technique advice</option>
+            <option value="collab">Collaboration</option>
+            <option value="feedback">Feedback</option>
+            <option value="other">Other</option>
+          </select>
+        </div>
+        <div class="form-group">
+          <label for="message">Message *</label>
+          <textarea id="message" name="message" placeholder="Tell us about your bake, ask a question, or share a sourdough story..." required></textarea>
+        </div>
+        <button type="submit" class="btn">Send message</button>
+        <p style="margin-top: 1rem; font-size: 0.8rem; color: var(--text-muted);">* required fields. We respect your privacy.</p>
+      </form>
+    </div>
+
+    <!-- right: info & social -->
+    <div class="contact-card" style="background: var(--brand-cream);">
+      <h2>Get in touch</h2>
+      <p class="sub">We’re a small team of bread lovers, but we’ll always find time for you.</p>
+      <div class="contact-info">
+        <div class="info-item">
+          <div class="info-icon">📬</div>
+          <div><h4>Email</h4><p>hello@dawnbaking.corner</p></div>
+        </div>
+        <div class="info-item">
+          <div class="info-icon">📞</div>
+          <div><h4>Phone</h4><p>+1 (555) 274-6274<br /><span class="meta">Mon–Fri, 9am–6pm EST</span></p></div>
+        </div>
+        <div class="info-item">
+          <div class="info-icon">📍</div>
+          <div><h4>Bakery & studio</h4><p>42 Flour Lane,<br />Brooklyn, NY 11201</p></div>
+        </div>
+      </div>
+
+      <div style="margin-top: 1rem;">
+        <h4>Find us online</h4>
+        <div class="social-links">
+          <a href="#">Instagram</a>
+          <a href="#">YouTube</a>
+          <a href="#">Pinterest</a>
+          <a href="#">Newsletter</a>
+        </div>
+      </div>
+
+      <!-- map placeholder (infographic style) -->
+      <div class="map-placeholder">
+        <p style="font-family: var(--font-serif); font-size: 1.3rem; color: var(--brand-deep);">📍 Flour Lane, Brooklyn</p>
+        <p style="font-size: 0.9rem; color: var(--text-muted);">We're in the heart of the baking district — drop by for a croissant.</p>
+        <div style="background: var(--brand-light); padding: 0.5rem; border-radius: 0.5rem; margin-top: 0.8rem;">
+          <svg viewBox="0 0 300 120" xmlns="http://www.w3.org/2000/svg" style="width:100%; height:auto;">
+            <rect x="0" y="0" width="300" height="120" fill="#F0E2D0" rx="8" />
+            <circle cx="60" cy="60" r="18" fill="#B47B4C" />
+            <circle cx="140" cy="40" r="14" fill="#D9B382" />
+            <circle cx="210" cy="70" r="12" fill="#5E3A2A" />
+            <circle cx="260" cy="50" r="16" fill="#A67B5B" />
+            <text x="30" y="100" font-size="10" fill="#3A312B">★ our bakery</text>
+            <text x="110" y="100" font-size="10" fill="#3A312B">miller's market</text>
+            <text x="190" y="100" font-size="10" fill="#3A312B">yeast lab</text>
+            <text x="240" y="100" font-size="10" fill="#3A312B">oven co.</text>
+          </svg>
+        </div>
+        <p style="font-size: 0.8rem; margin-top: 0.5rem; color: var(--text-muted);">Map: our favourite spots in the neighbourhood.</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- FAQ / quick help -->
+  <div style="background: var(--surface-card); border-radius: 1rem 0.5rem 1rem 0.5rem; padding: 2rem; border: 1px solid var(--border-soft); margin: 2rem 0;">
+    <h3 style="font-family: var(--font-serif); font-size: 1.6rem;">Before you write — quick answers</h3>
+    <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 1.5rem; margin-top: 1rem;">
+      <div><strong>🔍 Where are your recipes?</strong><br />All recipes are in the <a href="categories.html">Categories</a> section.</div>
+      <div><strong>📨 Do you accept guest posts?</strong><br />Yes — we love featuring bakers. Email us with your idea.</div>
+      <div><strong>⏳ How long for a reply?</strong><br />Usually within 48 hours. We bake on weekends, so expect a slower reply.</div>
+      <div><strong>🍞 Can I share my sourdough starter?</strong><br />Absolutely! Tag us on social — we repost our favourite bakes.</div>
+    </div>
+  </div>
+
+</main>
+
+<!-- footer -->
+<footer class="site-footer">
+  <div class="container">
+    <div class="footer-grid">
+      <div><h4>Dawn Baking Corner</h4><p style="color:#dccfc2; font-size:0.9rem;">Artisan bread, viennoiserie, and pastry — a journal for bakers who chase the perfect crumb.</p><p style="margin-top:0.5rem; font-size:0.8rem;">📍 bakery · since 2026</p></div>
+      <div><h4>Explore</h4><a href="index.html">Journal</a><br /><a href="categories.html">Recipes</a><br /><a href="#">Techniques</a><br /><a href="#">Resources</a></div>
+      <div><h4>Info</h4><a href="about.html">About</a><br /><a href="#">Authors</a><br /><a href="contact.html">Contact</a><br /><a href="#">Editorial policy</a></div>
+      <div><h4>Legal</h4><a href="privacy.html">Privacy</a><br /><a href="terms.html">Terms</a><br /><a href="cookies.html">Cookies</a><br /><a href="disclaimer.html">Disclaimer</a></div>
+    </div>
+    <div class="footer-legal">
+      <span>© 2026 Dawn Baking Corner — all rights reserved</span>
+      <span>🍞 handmade with flour & fire</span>
+    </div>
+  </div>
+</footer>
+
+<!-- hidden navigation for completeness -->
+<div style="display:none;">
+  <a href="index.html">Home</a> <a href="about.html">About</a> <a href="contact.html">Contact</a>
+  <a href="privacy.html">Privacy Policy</a> <a href="terms.html">Terms</a> <a href="cookies.html">Cookie Policy</a>
+  <a href="disclaimer.html">Disclaimer</a> <a href="categories.html">Categories</a>
+</div>
+
+</body>
+</html>

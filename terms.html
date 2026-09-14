@@ -1,0 +1,413 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Terms of Service · Dawn Baking Corner</title>
+    <meta name="description" content="Terms of Service for Dawn Baking Corner — guidelines, intellectual property, and user responsibilities." />
+    <!-- fonts & reset -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300;14..32,400;14..32,500;14..32,600;14..32,700&family=Martel:wght@300;400;600;700&display=swap" rel="stylesheet" />
+    <style>
+        /* ----- design tokens : dawn baking corner (same as about) ----- */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --brand-cream: #FBF5ED;
+            --brand-warm: #F0E2D0;
+            --brand-honey: #D9B382;
+            --brand-amber: #B47B4C;
+            --brand-deep: #5E3A2A;
+            --brand-ink: #28221E;
+            --brand-light: #FDF9F4;
+            --surface-card: #FFFFFF;
+            --border-soft: #E6D7C5;
+            --text-body: #3A312B;
+            --text-muted: #7A6B5E;
+            --font-serif: 'Martel', Georgia, 'Times New Roman', serif;
+            --font-sans: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            --card-radius: 0.5rem 1.5rem 0.5rem 1.5rem;
+            --shadow-sm: 0 4px 12px rgba(94, 58, 42, 0.06);
+            --shadow-md: 0 12px 32px -8px rgba(94, 58, 42, 0.10);
+            --transition: all 0.25s ease;
+        }
+
+        body {
+            font-family: var(--font-sans);
+            background: var(--brand-light);
+            color: var(--text-body);
+            line-height: 1.7;
+            -webkit-font-smoothing: antialiased;
+        }
+
+        a {
+            color: var(--brand-deep);
+            text-decoration: none;
+            transition: var(--transition);
+        }
+        a:hover {
+            color: var(--brand-amber);
+        }
+        img {
+            max-width: 100%;
+            height: auto;
+            display: block;
+        }
+        .container {
+            max-width: 1280px;
+            margin: 0 auto;
+            padding: 0 1.5rem;
+        }
+
+        /* ----- typography ----- */
+        h1, h2, h3, h4 {
+            font-family: var(--font-serif);
+            font-weight: 600;
+            letter-spacing: -0.01em;
+            line-height: 1.2;
+        }
+        .display-heading {
+            font-size: clamp(2.6rem, 7vw, 4.4rem);
+            font-weight: 700;
+            letter-spacing: -0.02em;
+        }
+        .section-title {
+            font-size: clamp(1.8rem, 4vw, 2.6rem);
+            border-bottom: 3px solid var(--brand-honey);
+            padding-bottom: 0.5rem;
+            display: inline-block;
+        }
+        .article-title {
+            font-size: clamp(1.8rem, 3.5vw, 2.8rem);
+            font-weight: 700;
+        }
+        .subtitle {
+            font-size: 1.2rem;
+            font-weight: 300;
+            color: var(--text-muted);
+            font-family: var(--font-sans);
+        }
+        .meta {
+            font-size: 0.875rem;
+            color: var(--text-muted);
+            letter-spacing: 0.02em;
+        }
+
+        /* ----- header / nav (handcrafted) ----- */
+        .site-header {
+            background: var(--brand-cream);
+            border-bottom: 2px solid var(--border-soft);
+            padding: 0.75rem 0;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            backdrop-filter: blur(4px);
+            background: rgba(251, 245, 237, 0.94);
+        }
+        .header-inner {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            flex-wrap: wrap;
+        }
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            font-family: var(--font-serif);
+            font-weight: 700;
+            font-size: 1.6rem;
+            color: var(--brand-deep);
+        }
+        .logo-icon {
+            background: var(--brand-deep);
+            color: var(--brand-light);
+            width: 42px;
+            height: 42px;
+            border-radius: 60% 40% 50% 50% / 45% 50% 40% 55%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.4rem;
+            transform: rotate(-4deg);
+            border: 2px solid var(--brand-honey);
+        }
+        .logo span {
+            letter-spacing: -0.02em;
+        }
+        .logo small {
+            font-size: 0.7rem;
+            font-weight: 300;
+            display: block;
+            letter-spacing: 0.2em;
+            color: var(--brand-amber);
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 1.8rem;
+            font-size: 0.9rem;
+            font-weight: 500;
+            text-transform: uppercase;
+            letter-spacing: 0.04em;
+        }
+        .nav-links a {
+            color: var(--brand-deep);
+            padding: 0.25rem 0;
+            border-bottom: 2px solid transparent;
+        }
+        .nav-links a:hover {
+            border-bottom-color: var(--brand-honey);
+        }
+
+        /* ----- terms page specific styles ----- */
+        .terms-hero {
+            background: var(--brand-cream);
+            border-radius: 1rem 2rem 1rem 2rem;
+            padding: 2.5rem 2.5rem;
+            margin: 2.5rem 0 2rem;
+            border: 1px solid var(--border-soft);
+            box-shadow: var(--shadow-sm);
+        }
+
+        .terms-card {
+            background: var(--surface-card);
+            border-radius: var(--card-radius);
+            padding: 2rem 2.5rem;
+            box-shadow: var(--shadow-sm);
+            border: 1px solid var(--border-soft);
+            margin: 1.5rem 0;
+        }
+        .terms-card h2 {
+            font-size: 1.6rem;
+            margin-bottom: 0.5rem;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+        .terms-card h2 .emoji {
+            font-size: 1.8rem;
+        }
+        .terms-card p, .terms-card li {
+            color: var(--text-body);
+            margin-bottom: 0.6rem;
+        }
+        .terms-card ul {
+            padding-left: 1.5rem;
+            margin: 0.5rem 0 1rem;
+        }
+        .terms-card li {
+            margin-bottom: 0.3rem;
+        }
+        .highlight-box {
+            background: var(--brand-warm);
+            border-radius: 0.5rem 1rem 0.5rem 1rem;
+            padding: 1.5rem;
+            margin: 1.2rem 0;
+            border-left: 6px solid var(--brand-honey);
+        }
+
+        /* ----- footer ----- */
+        .site-footer {
+            background: var(--brand-deep);
+            color: #e9ddd2;
+            padding: 3rem 0 1.5rem;
+            margin-top: 3rem;
+            border-top: 8px solid var(--brand-honey);
+        }
+        .footer-grid {
+            display: grid;
+            grid-template-columns: 2fr 1fr 1fr 1fr;
+            gap: 2rem;
+        }
+        .footer-grid h4 {
+            color: var(--brand-honey);
+            font-family: var(--font-serif);
+            margin-bottom: 0.8rem;
+        }
+        .footer-grid a {
+            color: #dccfc2;
+        }
+        .footer-grid a:hover {
+            color: var(--brand-honey);
+        }
+        .footer-legal {
+            border-top: 1px solid #5e3a2a;
+            margin-top: 2rem;
+            padding-top: 1.5rem;
+            display: flex;
+            flex-wrap: wrap;
+            gap: 1.5rem;
+            font-size: 0.8rem;
+            justify-content: space-between;
+        }
+
+        /* ----- responsive ----- */
+        @media (max-width: 800px) {
+            .footer-grid {
+                grid-template-columns: 1fr 1fr;
+            }
+            .header-inner {
+                flex-direction: column;
+                gap: 0.5rem;
+            }
+            .nav-links {
+                gap: 0.8rem;
+                font-size: 0.75rem;
+                flex-wrap: wrap;
+                justify-content: center;
+            }
+            .terms-hero {
+                padding: 2rem 1.2rem;
+            }
+            .terms-card {
+                padding: 1.5rem;
+            }
+        }
+        @media (max-width: 500px) {
+            .footer-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- header -->
+    <header class="site-header">
+        <div class="container header-inner">
+            <a href="index.html" class="logo" style="text-decoration:none;">
+                <span class="logo-icon">🍞</span>
+                <span>Dawn Baking <small>corner</small></span>
+            </a>
+            <nav class="nav-links">
+                <a href="index.html">Home</a>
+                <a href="about.html">About</a>
+                <a href="contact.html">Contact</a>
+                <a href="terms.html">Terms Of Privacy</a>
+                <a href="privacy.html">Privacy Policy</a>
+                <a href="cookies.html">Cookies Policy</a>
+                <a href="disclaimer.html">Disclaimer</a>
+                <a href="categories.html">Categories</a>
+            </nav>
+        </div>
+    </header>
+
+    <!-- main -->
+    <main class="container">
+
+        <!-- terms hero -->
+        <section class="terms-hero">
+            <span class="meta" style="background:var(--brand-honey); padding:0.1rem 1rem; border-radius:30px; color:white; display:inline-block;">terms of service</span>
+            <h1 class="display-heading" style="font-weight:400; margin:0.5rem 0 0.2rem;">Our <span style="background:var(--brand-honey); padding:0 0.2rem;">agreement</span> with you</h1>
+            <p class="subtitle" style="font-size:1.2rem; max-width:650px; margin-top:0.2rem;">
+                Please read these terms carefully. By using Dawn Baking Corner, you agree to the following conditions.
+            </p>
+            <div style="margin-top:1.5rem; display:flex; flex-wrap:wrap; gap:1.5rem;">
+                <div><span style="font-weight:600;">📅</span> <span class="meta">Last updated: April 2026</span></div>
+                <div><span style="font-weight:600;">⚖️</span> <span class="meta">Governing law: England & Wales</span></div>
+            </div>
+        </section>
+
+        <!-- terms content -->
+        <div class="terms-card">
+            <h2><span class="emoji">📌</span> 1. Acceptance of Terms</h2>
+            <p>By accessing or using Dawn Baking Corner (“we”, “our”, “us”), you agree to be bound by these Terms of Service and all applicable laws and regulations. If you do not agree with any part of these terms, you must not use our website.</p>
+            <p>We reserve the right to update these terms at any time. Changes will be posted on this page, and your continued use constitutes acceptance.</p>
+        </div>
+
+        <div class="terms-card">
+            <h2><span class="emoji">🧾</span> 2. Use of Content</h2>
+            <p>All recipes, articles, photographs, and other content on Dawn Baking Corner are protected by copyright and intellectual property laws. You may:</p>
+            <ul>
+                <li>✔️ Read, share, and print for personal, non‑commercial use.</li>
+                <li>✔️ Link to our content with proper attribution.</li>
+                <li>❌ <strong>Not</strong> republish, sell, or distribute our content without prior written permission.</li>
+                <li>❌ <strong>Not</strong> use our content for commercial purposes without a license.</li>
+            </ul>
+            <div class="highlight-box">
+                <strong>🍞 Baker’s exception:</strong> We encourage you to bake our recipes and share your results! You may post photos of your bakes with credit to Dawn Baking Corner.
+            </div>
+        </div>
+
+        <div class="terms-card">
+            <h2><span class="emoji">👩‍🍳</span> 3. User Contributions</h2>
+            <p>If you submit comments, recipe variations, or other content to our website, you grant us a non‑exclusive, royalty‑free, perpetual license to use, modify, and display that content in connection with our site.</p>
+            <p>You are solely responsible for your contributions. We reserve the right to remove any content that is inappropriate, offensive, or violates these terms.</p>
+        </div>
+
+        <div class="terms-card">
+            <h2><span class="emoji">🔗</span> 4. Third‑Party Links</h2>
+            <p>Our website may contain links to external sites. We are not responsible for the content, privacy policies, or practices of any third‑party websites. The inclusion of any link does not imply endorsement.</p>
+        </div>
+
+        <div class="terms-card">
+            <h2><span class="emoji">⚠️</span> 5. Disclaimer of Warranties</h2>
+            <p>All content on Dawn Baking Corner is provided “as is” and for informational purposes only. While we strive for accuracy, we do not guarantee that recipes, techniques, or nutritional information are error‑free. Baking results may vary.</p>
+            <p>We are not liable for any loss, injury, or damage arising from the use of our content. Always use your own judgment and follow food safety guidelines.</p>
+        </div>
+
+        <div class="terms-card">
+            <h2><span class="emoji">⚖️</span> 6. Limitation of Liability</h2>
+            <p>To the fullest extent permitted by law, Dawn Baking Corner and its contributors shall not be liable for any indirect, incidental, or consequential damages arising from your use of the website.</p>
+        </div>
+
+        <div class="terms-card">
+            <h2><span class="emoji">📧</span> 7. Contact</h2>
+            <p>If you have any questions about these Terms of Service, please <a href="contact.html">contact us</a> — we’d love to hear from you.</p>
+        </div>
+
+        <!-- last updated / acknowledgement -->
+        <div style="background:var(--brand-cream); border-radius:1rem 0.5rem 1rem 0.5rem; padding:1.5rem 2rem; margin:2rem 0 3rem; border:1px solid var(--border-soft);">
+            <p style="font-style:italic; color:var(--text-muted);">
+                <span style="font-weight:600;">📜</span> These terms are effective as of 1 April 2026. We encourage you to review them periodically.
+            </p>
+        </div>
+
+    </main>
+
+    <!-- footer -->
+    <footer class="site-footer">
+        <div class="container">
+            <div class="footer-grid">
+                <div>
+                    <h4>Dawn Baking Corner</h4>
+                    <p style="color:#dccfc2; font-size:0.9rem;">Artisan bread, viennoiserie, and pastry — a journal for bakers who chase the perfect crumb.</p>
+                    <p style="margin-top:0.5rem; font-size:0.8rem;">📍 bakery · since 2026</p>
+                </div>
+                <div>
+                    <h4>Explore</h4>
+                    <a href="#">Journal</a><br />
+                    <a href="#">Recipes</a><br />
+                    <a href="#">Techniques</a><br />
+                    <a href="#">Resources</a>
+                </div>
+                <div>
+                    <h4>Info</h4>
+                    <a href="about.html">About</a><br />
+                    <a href="#">Authors</a><br />
+                    <a href="contact.html">Contact</a><br />
+                    <a href="#">Editorial policy</a>
+                </div>
+                <div>
+                    <h4>Legal</h4>
+                    <a href="privacy.html">Privacy</a><br />
+                    <a href="terms.html">Terms</a><br />
+                    <a href="cookies.html">Cookies</a><br />
+                    <a href="disclaimer.html">Disclaimer</a>
+                </div>
+            </div>
+            <div class="footer-legal">
+                <span>© 2026 Dawn Baking Corner — all rights reserved</span>
+                <span>🍞 handmade with flour & fire</span>
+            </div>
+        </div>
+    </footer>
+
+</body>
+</html>
